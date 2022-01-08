@@ -1,0 +1,3 @@
+LINUX OS-
+	Redhat, CentOS(Free Redhat), fedora, Suse, Debian, Ubuntu
+	
