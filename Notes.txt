@@ -1,3 +1,85 @@
 LINUX OS-
-	Redhat, CentOS(Free Redhat), fedora, Suse, Debian, Ubuntu
+	Redhat, CentOS(Free Redhat), Fedora, Suse, Debian, Ubuntu
 	
+GUI of Linux is callef GNOME/KDE
+Like Remote Desktop(RDP) in Windows, we have Putty in Linux or using ssh. For mac use ssh -l username IP.
+
+FILE SYSTEM-
+	/	/boot				-	files used by boot loader(grub.cfg)
+		/root				-	root user home directory
+		/dev				-	System(Peripheral) Devices(disk, cdrom, speakers, flashdrive, keyboard, etc)
+		/etc				-	Configuration files
+		/bin -> /usr/bin	-	Everyday user commands like ls 
+		/sbin -> /usr/sbin	-	System/filesystem commands
+		/opt				-	Optional/Third party add-on applications(Not part of OS apps)
+		/proc				-	Running processes(Only exists in memory)
+		/lib -> /usr/lib	-	C programming files needed by commands and apps. strace -e open pwd
+		/tmp				-	Directory for temporary files
+		/home				-	Normal user home directory
+		/var				-	System logs
+		/run				-	System daemons that start very early(eg- systemd and udev) to store temp runtime files like PID files
+		/mnt				-	To mount external filesystems (eg- NFS)
+		/media				-	For cdrom mounts
+
+COMMANDS -
+	man commandName	-	To get different options for a command
+
+	whoami	-	To check who is logged in
+	su -	-	Switch User
+	clear	-	Clear Screen
+	pwd		-	Print working directory
+	cd		-	Change Directory. If we run only cd then we go to our default user directory
+	ls -l	-	List. If starts with dash then it is a file, if starts with d then it is a folder. -ltr to sort descending order of creation
+
+	touch First Second				-	Creates an empty file. Can create multiple files
+	cp								-	Copy and create a file
+	cp -R source_folder dest_folder	-	Copy folder
+	vi								-	Editor for creating file. :wq! for write and quit
+	echo "ok" > filename			-	Write data to file, >> to concat
+	cat								-	Print file
+	mkdir First Second				-	Make Directory. Can create multiple directories
+	rm 								-	Remove or Delete file
+
+	find location -name "Filename"	- 	find . -name "filename". find command dont have any database and uses filesyatem and hence slow
+	locate filename					-	If no output then switch to root and type updatedb, run yum install mlocate. locate command has its own database and refreshes(updatedb command) and is faster
+	passwd userid					-	Change Password, Enter old and new pw
+	ln filename						-	Create link, -s for softlink
+
+WHAT IS ROOT -
+	Root Account is a username on linux machine
+	Root as / directory or root directory
+	Root home directory is /root
+
+FILE STRUCTURE -
+	drwxrwxrwx, number of links, Owner, Group, Size, Month, Day, Time, Name
+ 	Note -	7 Types of files in Linux
+	 			d means directory 
+				l means link
+				dash means file 
+				c means special/device file
+				s means socket file
+				p means named pipe file 
+				b means blocked device file
+	
+WILDCARDS - can be used with any command
+	*		-	represents zero or more characters
+	?		-	represents single character
+	[]		-	represents range of characters. Ex - ls -ltr *[cd]* gives files which have either c or d 
+	{1..9}	-	represents range of characters. Ex - touch abc{1..9}-xyz creates 9 files
+	\		-	as an escape character
+	^		-	the beginning of the line
+	$		-	the end of line
+
+SOFT AND HARD LINKS(LIKE SHORTCUTS IN WINDOWS) -
+	inode - Pointer or number of a file on the hard disk. (address of file)
+	Soft link	-	link will be removed if file is removed/renamed. Command to create -> ln -s filename
+	Hard link	-	link will not be removed. Command to create -> ln filename
+	Note - 	We cannot create links in same directory with the same name
+			Hardlinks work in same partition of harddrive
+			ls -ltri filename -> to display inodes
+Doubt - Why hardlink has -rw-rw-r-- instead of lrw-rw-r-- ? 
+	
+
+
+
+
