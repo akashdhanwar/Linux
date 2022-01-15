@@ -23,27 +23,41 @@ FILE SYSTEM-
 
 COMMANDS -
 	man commandName	-	To get different options for a command
-
-	whoami	-	To check who is logged in
-	su -	-	Switch User
-	clear	-	Clear Screen
-	pwd		-	Print working directory
-	cd		-	Change Directory. If we run only cd then we go to our default user directory
-	ls -l	-	List. If starts with dash then it is a file, if starts with d then it is a folder. -ltr to sort descending order of creation
+	whoami			-	To check who is logged in
+	su -			-	Switch User, We can use username instead of -
+	clear			-	Clear Screen
+	pwd				-	Print working directory
+	cd				-	Change Directory. If we run only cd then we go to our default user directory
+	ls -l			-	List. If starts with dash then it is a file, if starts with d then it is a folder. -ltr where l is list, t is sort by time, r is in reverse order
+						We can also provide filename to view a specific file
 
 	touch First Second				-	Creates an empty file. Can create multiple files
-	cp								-	Copy and create a file
+	cp source destination			-	Copy and create a file
 	cp -R source_folder dest_folder	-	Copy folder
 	vi								-	Editor for creating file. :wq! for write and quit
 	echo "ok" > filename			-	Write data to file, >> to concat
 	cat								-	Print file
 	mkdir First Second				-	Make Directory. Can create multiple directories
 	rm 								-	Remove or Delete file
-
 	find location -name "Filename"	- 	find . -name "filename". find command dont have any database and uses filesyatem and hence slow
 	locate filename					-	If no output then switch to root and type updatedb, run yum install mlocate. locate command has its own database and refreshes(updatedb command) and is faster
 	passwd userid					-	Change Password, Enter old and new pw
 	ln filename						-	Create link, -s for softlink
+	chmod g-w filename				-	Change permissions, removes write permissions from group. a+rw adds permission to all
+										If we remove execute on a folder, we cannot navigate into it
+	chmod 444 filename				-	0	-	No permission
+										1	-	Execute
+										2	-	Write
+										3	-	Execute+Right
+										4	-	Read
+										5	-	Read+Execute
+										6	-	Read+Write
+										7	-	Read+Write+Execute
+	chown toGiveOwnership filename	-	Change Ownership of a file. Ex - chown root filename
+	chgrp toGiveOwnership filename	-	Changes group ownership of a file
+										Only root can change ownership
+										*Note - We can still delete file from our account because our home directory provides execute permissions to user
+
 
 WHAT IS ROOT -
 	Root Account is a username on linux machine
@@ -51,7 +65,7 @@ WHAT IS ROOT -
 	Root home directory is /root
 
 FILE STRUCTURE -
-	drwxrwxrwx, number of links, Owner, Group, Size, Month, Day, Time, Name
+	drwxrwxrwx(user group other), number of links, Owner, Group, Size, Month, Day, Time, Name
  	Note -	7 Types of files in Linux
 	 			d means directory 
 				l means link
@@ -83,3 +97,4 @@ Doubt - Why hardlink has -rw-rw-r-- instead of lrw-rw-r-- ?
 
 
 
+Lec 61
