@@ -23,6 +23,8 @@ FILE SYSTEM-
 
 COMMANDS -
 	man commandName	-	To get different options for a command
+						commandName --help	->	Same
+						whatis commandName	-> Same
 	whoami			-	To check who is logged in
 	su -			-	Switch User, We can use username instead of -
 	clear			-	Clear Screen
@@ -35,7 +37,8 @@ COMMANDS -
 	cp source destination			-	Copy and create a file
 	cp -R source_folder dest_folder	-	Copy folder
 	vi								-	Editor for creating file. :wq! for write and quit
-	echo "ok" > filename			-	Write data to file, >> to concat
+	echo "ok" > filename			-	Write data to file, >> to concat.
+										ls -ltr > filename prints the command output to file
 	cat								-	Print file
 	mkdir First Second				-	Make Directory. Can create multiple directories
 	rm 								-	Remove or Delete file
@@ -93,8 +96,15 @@ SOFT AND HARD LINKS(LIKE SHORTCUTS IN WINDOWS) -
 			ls -ltri filename -> to display inodes
 Doubt - Why hardlink has -rw-rw-r-- instead of lrw-rw-r-- ? 
 	
+ACCESS CONTROL LIST -
+	Used to provide specific access to specific user
+	setfacl and getfacl
+	setfacl -m u:username:rwx /path/to/file - To add permission
+	setfacl -m g:groupname:rw /path/to/file - To add permission
+	setfacl -rm "entry" /path/to/dir	-	Cascade(Inherit)
+	setfacl -x u:username /path/to/file	-	Remove specific entry
+	setfacl -b path/to/file	-	To remove all entries
+	File adds a + ahead of permission to show that ACL is assigned, giving write permission will not allow us to delete the file
 
 
-
-
-Lec 61
+Lec 65
